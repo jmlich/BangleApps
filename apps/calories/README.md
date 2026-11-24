@@ -84,5 +84,7 @@ Bangle.on("calories",function(calorieData){
 });
 ```
 
+With [Android Integration](https://banglejs.com/apps/?id=android) installed, the app also adds the active calories of each 10 minute health record (`cal`) to the activity data sent to Gadgetbridge. Records fetched later from the watch history have no `cal`.
+
 ## Creator:
 [RKBoss6](https://github.com/rkboss6)

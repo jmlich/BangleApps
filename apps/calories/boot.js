@@ -134,6 +134,20 @@ Bangle.on("health", function (hd) {
   Bangle.emit("calories", calData);
 });
 
+// Android Integration sends each 10 minute health record to Gadgetbridge as "act" from its own "health" listener,
+// so add the active calories when that record is sent. History ("ts") and realtime ("rt") records are left as they are.
+if (require("Storage").read("android") !== undefined) {
+  let android = require("android");
+  let gbSend = android.gbSend;
+  android.gbSend = function (e) {
+    if (e.t == "act" && e.ts === undefined && !e.rt && e.hrm && e.act != "NOT_WORN") {
+      let cd = calModule.calcCalories({ steps: e.stp, bpm: e.hrm, duration: 10 }, myProfile);
+      if (cd) e.cal = cd.activeCalories;
+    }
+    gbSend(e);
+  };
+}
+
 E.on("kill", function () {
   //save cals counted
   captureChanges();

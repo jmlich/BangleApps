@@ -1,2 +1,3 @@
 0.01: Initial app based on #4092
 0.02: Adjust formula slightly and fix overestimated active calories by scaling based on max HR (#4286)
+0.03: Send active calories of each 10 minute record to Gadgetbridge (with Android Integration)

@@ -3,7 +3,7 @@
   "name": "Calorie Tracker",
   "shortName":"Calories",
   "icon": "icon.png",
-  "version":"0.02",
+  "version":"0.03",
   "description": "A health-integrated calorie tracker using `MyProfile`.",
   "type":"app",    
   "tags": "health,clkinfo",
